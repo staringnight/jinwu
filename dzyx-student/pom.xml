@@ -11,13 +11,56 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dzyx-student</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
 
     <modules>
         <module>api</module>
         <module>service</module>
-        <module>controller</module>
         <module>acl</module>
     </modules>
 
+    <properties>
+        <dzyx-student.version.aprent>1.0.0-SNAPSHOT</dzyx-student.version.aprent>
+        <dzyx-grande.version.aprent>1.0.0-SNAPSHOT</dzyx-grande.version.aprent>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.dazhi100</groupId>
+                <artifactId>student-api</artifactId>
+                <version>${dzyx-student.version.aprent}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dazhi100</groupId>
+                <artifactId>student-acl</artifactId>
+                <version>${dzyx-student.version.aprent}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dazhi100</groupId>
+                <artifactId>grade-api</artifactId>
+                <version>${dzyx-grande.version.aprent}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

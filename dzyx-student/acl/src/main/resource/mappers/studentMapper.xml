@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dazhi100.student.test.mapper.StudentMapper">
+
+    <insert id="saveStudent">
+        insert into dzyx_student(
+        student_id,
+        student_name
+        ) values (
+          #{info.studentId},
+          #{info.studentName}
+        )
+    </insert>
+</mapper>
