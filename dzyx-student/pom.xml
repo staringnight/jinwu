@@ -7,7 +7,6 @@
         <artifactId>dzyx-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dzyx-student</artifactId>
     <packaging>pom</packaging>
@@ -18,7 +17,6 @@
         <module>service</module>
         <module>infrastructure</module>
         <module>web</module>
-        <module>common</module>
     </modules>
 
     <properties>
@@ -28,12 +26,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.dazhi100</groupId>
-            <artifactId>student-common</artifactId>
-            <version>${project.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>com.dazhi100</groupId>
             <artifactId>dzyx-common</artifactId>
