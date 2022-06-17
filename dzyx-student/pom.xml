@@ -11,43 +11,40 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dzyx-student</artifactId>
     <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
 
     <modules>
         <module>api</module>
         <module>service</module>
-        <module>acl</module>
+        <module>infrastructure</module>
+        <module>web</module>
+        <module>common</module>
     </modules>
 
     <properties>
-        <dzyx-student.version.aprent>1.0.0-SNAPSHOT</dzyx-student.version.aprent>
-        <dzyx-grande.version.aprent>1.0.0-SNAPSHOT</dzyx-grande.version.aprent>
+        <dzyx-student.version>1.0.0-SNAPSHOT</dzyx-student.version>
+        <dzyx-grande.version>1.0.0-SNAPSHOT</dzyx-grande.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.dazhi100</groupId>
-                <artifactId>student-api</artifactId>
-                <version>${dzyx-student.version.aprent}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.dazhi100</groupId>
-                <artifactId>student-acl</artifactId>
-                <version>${dzyx-student.version.aprent}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.dazhi100</groupId>
-                <artifactId>grade-api</artifactId>
-                <version>${dzyx-grande.version.aprent}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>com.dazhi100</groupId>
+            <artifactId>student-common</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.dazhi100</groupId>
+            <artifactId>dzyx-common</artifactId>
+            <version>${dzyx-grande.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- bootstrap.properties依赖包 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -56,6 +53,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
