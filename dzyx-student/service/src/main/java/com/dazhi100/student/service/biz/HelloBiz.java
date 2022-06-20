@@ -13,7 +13,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @DubboService
 @Slf4j
 @RefreshScope
-public class HelloService implements HelloApi {
+public class HelloBiz implements HelloApi {
 
 //    @Autowired
 //    private RedissonClient redissonClient;

@@ -15,7 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @SpringBootApplication
 @MapperScan("com.dazhi100.student")
-@ComponentScan("com.dazhi100.student")
+@ComponentScan({"com.dazhi100.student", "com.dazhi100.common"})
 public class StudentApplication {
 
     public static void main(String[] args) {

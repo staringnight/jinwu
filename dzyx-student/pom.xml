@@ -21,7 +21,7 @@
 
     <properties>
         <dzyx-student.version>1.0.0-SNAPSHOT</dzyx-student.version>
-        <dzyx-grande.version>1.0.0-SNAPSHOT</dzyx-grande.version>
+        <dzyx-common.version>1.0.0-SNAPSHOT</dzyx-common.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -29,7 +29,7 @@
         <dependency>
             <groupId>com.dazhi100</groupId>
             <artifactId>dzyx-common</artifactId>
-            <version>${dzyx-grande.version}</version>
+            <version>${dzyx-common.version}</version>
             <scope>provided</scope>
         </dependency>
         <!-- bootstrap.properties依赖包 -->

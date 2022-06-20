@@ -73,13 +73,41 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                </configuration>
+            </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
     <profiles>
         <profile>
             <id>develop</id>
             <properties>
                 <package.environment>develop</package.environment>
+                <nacos.namespace>dzyx_nacos_ns_dev</nacos.namespace>
             </properties>
             <build>
                 <plugins>
@@ -98,17 +126,15 @@
                             </excludes>
                         </configuration>
                     </plugin>
-
                 </plugins>
             </build>
-
-
         </profile>
 
         <profile>
             <id>release</id>
             <properties>
                 <package.environment>release</package.environment>
+                <nacos.namespace>dzyx_nacos_ns_release</nacos.namespace>
             </properties>
             <build>
                 <plugins>
@@ -138,6 +164,7 @@
             </activation>
             <properties>
                 <package.environment>local</package.environment>
+                <nacos.namespace>dzyx_nacos_ns_dev</nacos.namespace>
             </properties>
             <build>
                 <plugins>
@@ -201,6 +228,6 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
+
 </project>

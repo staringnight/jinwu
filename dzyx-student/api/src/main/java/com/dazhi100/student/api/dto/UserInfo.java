@@ -1,4 +1,4 @@
-package com.dazhi100.student.service.dto;
+package com.dazhi100.student.api.dto;
 
 import lombok.Data;
 

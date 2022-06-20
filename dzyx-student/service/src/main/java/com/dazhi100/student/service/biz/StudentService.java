@@ -1,8 +1,8 @@
 package com.dazhi100.student.service.biz;
 
 
+import com.dazhi100.student.api.dto.StudentDto;
 import com.dazhi100.student.service.acl.TestRepository;
-import com.dazhi100.student.service.dto.StudentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

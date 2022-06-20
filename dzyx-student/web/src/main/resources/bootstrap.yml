@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: student-service
+  main:
+    allow-circular-references: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.99.108.112:8848
+        namespace: @nacos.namespace@
+  profiles:
+    active: @package.environment@
+server:
+  port: 6081
+  name: ${spring.application.name}
+logging:
+  config: classpath:log/logback-@package.environment@.xml
+  file:
+    path: /dzyx/logs
+dubbo:
+  cloud:
+    subscribed-services: school-service, grade-service
+---
+# 本地环境
+spring:
+  config:
+    activate:
+      on-profile: local
+  cloud:
+    nacos:
+      config:
+        enabled: false
+---
+# 测试环境
+spring:
+  config:
+    activate:
+      on-profile: develop
+  cloud:
+    nacos:
+      config:
+        group: DEFAULT_GROUP
+        prefix: ${spring.application.name}
+        server-addr: 47.99.108.112:8848
+        file-extension: yaml
+        namespace: @nacos.namespace@
+---
+# 正式环境
+spring:
+  config:
+    activate:
+      on-profile: release
+  cloud:
+    nacos:
+      config:
+        group: DEFAULT_GROUP
+        prefix: ${spring.application.name}
+        server-addr: 47.99.108.112:8848
+        file-extension: yaml
+        namespace: @nacos.namespace@
