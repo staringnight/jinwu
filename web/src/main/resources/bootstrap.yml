@@ -12,7 +12,6 @@ spring:
     active: @package.environment@
 server:
   port: 6081
-  name: ${spring.application.name}
 logging:
   config: classpath:log/logback-@package.environment@.xml
   file:

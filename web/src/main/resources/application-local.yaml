@@ -15,3 +15,10 @@ spring:
 rocketmq:
   #mq的nameserver地址
   name-server: 127.0.0.1:9876
+
+clientcache:
+  keyConfigs:
+    "[student _ _ ? _]":
+      - "/student-service/test.* _ _ q _"
+    "[leave _ _ _ leaveId]":
+      - "/student-service/test.* _ _ _ q"

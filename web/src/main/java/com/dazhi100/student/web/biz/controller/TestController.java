@@ -10,13 +10,10 @@ import com.dazhi100.student.service.biz.StudentService;
 import com.dazhi100.student.web.biz.entity.request.StudentRequest;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
 
 /**
  * @author mac
@@ -32,18 +29,18 @@ public class TestController {
     }
 
     @GetMappingWithClientCache("/index")
-    public Mono<ResponseEntity<String>> index() {
-        return Mono.just(new ResponseEntity<>(JSON.toJSONString(clientCacheConfig.getKeyConfigs()), HttpStatus.OK));
+    public String index() {
+        return JSON.toJSONString(clientCacheConfig.getKeyConfigs());
     }
 
     @GetMappingWithClientCache("/get")
-    public Mono<ResponseEntity<String>> get() {
-        return Mono.just(new ResponseEntity<>("get", HttpStatus.OK));
+    public String get() {
+        return studentService.get();
     }
 
-    @GetMappingWithClientCache("/update")
-    public Mono<ResponseEntity<String>> update() {
-        return Mono.just(new ResponseEntity<>("update", HttpStatus.OK));
+    @PostMapping("/update")
+    public String update() {
+        return studentService.update(1L, 1L);
     }
 
     @Autowired
