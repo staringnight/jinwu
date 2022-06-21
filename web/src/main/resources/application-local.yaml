@@ -21,4 +21,4 @@ clientcache:
     "[student _ _ ? _]":
       - "/student-service/test.* _ _ q _"
     "[leave _ _ _ leaveId]":
-      - "/student-service/test.* _ _ _ q"
+      - "/student-service/test.* _ _ _ s"

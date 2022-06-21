@@ -4,6 +4,7 @@ package com.dazhi100.student.service.biz;
 import com.dazhi100.common.annotation.UpdateClientCache;
 import com.dazhi100.student.api.dto.StudentDto;
 import com.dazhi100.student.service.acl.TestRepository;
+import com.dazhi100.student.service.dto.StudentLeaveDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,21 @@ public class StudentService {
         return "update";
     }
 
-    public String get() {
+    /**
+     * key sid cid stuId customize
+     * key:资源key
+     * sid/cid/stuId 使用_（无需），?(变量，根据pathReg规则获取)
+     * customize 使用_（无需），或指定参数名称，如 uid、msgId等，默认使用'?'的处理方式，但是会取keyReg指定的参数
+     */
+    @UpdateClientCache(keyReg = "student _ _ ? _", argReg = "studentLeaveDto _ _ s _")
+    @UpdateClientCache(keyReg = "leave _ _ _ leaveId", argReg = "studentLeaveDto _ _ _ s")
+    public String update(StudentLeaveDto studentLeaveDto) {
+        log.info("update studentId: {}, studentName:{}", studentLeaveDto.getStuId(), studentLeaveDto.getStudentName());
+        return "update";
+    }
+
+    public String get(Long stuId) {
+        log.info("get studentId: {}", stuId);
         return "get";
     }
 }
