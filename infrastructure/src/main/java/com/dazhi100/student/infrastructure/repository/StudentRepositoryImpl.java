@@ -17,6 +17,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public void saveStudent(StudentDto var1) {
+        var1 = new StudentDto();
+        var1.setStudentName("1231");
         studentMapper.saveStudent(var1);
     }
 }

@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDubbo
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("com.dazhi100.student")
+@MapperScan("com.dazhi100.student.infrastructure")
 @ComponentScan({"com.dazhi100.student", "com.dazhi100.common"})
 public class StudentApplication {
 
