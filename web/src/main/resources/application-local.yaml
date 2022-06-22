@@ -4,7 +4,6 @@ spring:
     port: 12379
     password: Dazhi100
     database: 0
-    password: Dazhi100
     lettuce:
       pool:
         max-active: 32
