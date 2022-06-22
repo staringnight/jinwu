@@ -35,14 +35,14 @@ public class TestController {
         return studentService.get(stuId);
     }
 
-    @PostMapping("/update1")
-    public String update1() {
+    @PostMapping("/update")
+    public String update() {
         return studentService.update(1L, 1L);
     }
 
 
-    @PostMapping("/update2")
-    public String update2(@Validated @RequestBody StudentLeaveRequest request) {
+    @PostMapping("/updates")
+    public String update(@Validated @RequestBody StudentLeaveRequest request) {
         return studentService.update(StudentLeaveConverter.INSTANCES.sourceToTarget(request));
     }
 

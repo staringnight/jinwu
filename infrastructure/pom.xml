@@ -13,6 +13,9 @@
     <artifactId>student-infrastructure</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <dzyx-grade.version>1.0.0-SNAPSHOT</dzyx-grade.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -61,6 +64,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.dazhi100</groupId>
+            <artifactId>grade-api</artifactId>
+            <version>${dzyx-grade.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

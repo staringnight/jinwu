@@ -3,7 +3,8 @@ package com.dazhi100.student.service.biz;
 
 import com.dazhi100.common.annotation.UpdateClientCache;
 import com.dazhi100.student.api.dto.StudentDto;
-import com.dazhi100.student.service.acl.TestRepository;
+import com.dazhi100.student.service.acl.GradeRepository;
+import com.dazhi100.student.service.acl.StudentRepository;
 import com.dazhi100.student.service.dto.StudentLeaveDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +18,19 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class StudentService {
 
-    private TestRepository testRepository;
+    private StudentRepository studentRepository;
+
+    private GradeRepository gradeRepository;
 
     @Autowired
-    public StudentService(TestRepository testRepository) {
-        this.testRepository = testRepository;
+    public StudentService(StudentRepository studentRepository, GradeRepository gradeRepository) {
+        this.studentRepository = studentRepository;
+        this.gradeRepository = gradeRepository;
     }
 
+
     public void saveStudent(StudentDto studentDto) {
-        testRepository.saveStudent(studentDto);
+        studentRepository.saveStudent(studentDto);
     }
 
     /**
@@ -55,6 +60,8 @@ public class StudentService {
     }
 
     public String get(Long stuId) {
+        gradeRepository.get();
+        studentRepository.saveStudent(null);
         log.info("get studentId: {}", stuId);
         return "get";
     }
