@@ -61,7 +61,7 @@ public class StudentService {
 
     public String get(Long stuId) {
         gradeRepository.get();
-        studentRepository.saveStudent(null);
+        //studentRepository.saveStudent(new StudentDto());
         log.info("get studentId: {}", stuId);
         return "get";
     }
