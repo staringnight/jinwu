@@ -3,8 +3,7 @@ package com.dazhi100.student.web.biz.controller;
 import com.dazhi100.common.annotation.GetMappingWithClientCache;
 import com.dazhi100.common.clientcache.query.ClientCacheQueryMatcher;
 import com.dazhi100.common.utils.JSON;
-import com.dazhi100.grade.test.api.GradeService;
-import com.dazhi100.grade.test.entity.request.GradeRequest;
+
 import com.dazhi100.student.api.dto.StudentDto;
 import com.dazhi100.student.service.biz.StudentService;
 import com.dazhi100.student.web.biz.converter.StudentLeaveConverter;
@@ -52,8 +51,7 @@ public class TestController {
     @Autowired
     private StudentService studentService;
 
-    @DubboReference(check = false)
-    private GradeService gradeService;
+
 
     @PostMapping(value = "/saveStudent")
     public void saveStudent(@RequestBody StudentRequest studentRequest) {
@@ -62,9 +60,5 @@ public class TestController {
         studentInfo.setStudentName(studentRequest.getStudentName());
         studentService.saveStudent(studentInfo);
 
-        GradeRequest gradeRequest = new GradeRequest();
-        gradeRequest.setGradeId(studentRequest.getGradeId());
-        gradeRequest.setGradeName(studentRequest.getGradeName());
-        gradeService.saveGrade(gradeRequest);
     }
 }

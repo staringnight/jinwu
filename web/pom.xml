@@ -46,11 +46,7 @@
             <artifactId>student-service</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.dazhi100</groupId>
-            <artifactId>grade-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>com.dazhi100</groupId>
             <artifactId>student-infrastructure</artifactId>
