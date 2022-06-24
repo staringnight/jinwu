@@ -23,10 +23,3 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
-
-clientcache:
-  keyConfigs:
-    "[student _ _ ? _]":
-      - "/student-service/test.* _ _ q _"
-    "[leave _ _ _ leaveId]":
-      - "/student-service/test.* _ _ _ s"

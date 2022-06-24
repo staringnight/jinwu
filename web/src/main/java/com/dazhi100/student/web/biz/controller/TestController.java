@@ -1,6 +1,7 @@
 package com.dazhi100.student.web.biz.controller;
 
 import com.dazhi100.common.annotation.GetMappingWithClientCache;
+import com.dazhi100.common.annotation.NotWarpResponseBody;
 import com.dazhi100.common.clientcache.query.ClientCacheQueryMatcher;
 import com.dazhi100.common.constant.TimeConstant;
 import com.dazhi100.common.utils.JSON;
@@ -22,10 +23,12 @@ import java.time.LocalDateTime;
 @RequestMapping("/test")
 public class TestController {
     private ClientCacheQueryMatcher clientCacheConfig;
+    private StudentService studentService;
 
     @Autowired
-    public TestController(ClientCacheQueryMatcher clientCacheConfig) {
+    public TestController(ClientCacheQueryMatcher clientCacheConfig, StudentService studentService) {
         this.clientCacheConfig = clientCacheConfig;
+        this.studentService = studentService;
     }
 
     @GetMappingWithClientCache("/index")
@@ -33,6 +36,7 @@ public class TestController {
         return JSON.toJSONString(clientCacheConfig.getKeyConfigs());
     }
 
+    @NotWarpResponseBody
     @GetMappingWithClientCache("/get")
     public String get(@RequestParam Long stuId) {
         return studentService.get(stuId);
@@ -51,10 +55,6 @@ public class TestController {
     public String update(@Validated @RequestBody StudentLeaveRequest request) {
         return studentService.update(StudentLeaveConverter.INSTANCES.sourceToTarget(request));
     }
-
-    @Autowired
-    private StudentService studentService;
-
 
 
     @PostMapping(value = "/saveStudent")
