@@ -2,6 +2,7 @@ package com.dazhi100.student.web.biz.controller;
 
 import com.dazhi100.common.annotation.GetMappingWithClientCache;
 import com.dazhi100.common.clientcache.query.ClientCacheQueryMatcher;
+import com.dazhi100.common.constant.TimeConstant;
 import com.dazhi100.common.utils.JSON;
 import com.dazhi100.student.api.dto.StudentDto;
 import com.dazhi100.student.service.biz.StudentService;
@@ -11,6 +12,8 @@ import com.dazhi100.student.web.biz.entity.request.StudentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 /**
  * @author mac
@@ -36,8 +39,11 @@ public class TestController {
     }
 
     @PostMapping("/update")
-    public String update() {
-        return studentService.update(1L, 1L);
+    public StudentRequest update() {
+        studentService.update(1L, 1L);
+        StudentRequest studentRequest = new StudentRequest();
+        studentRequest.setTime(LocalDateTime.now());
+        return studentRequest;
     }
 
 
@@ -56,6 +62,8 @@ public class TestController {
         StudentDto studentInfo = new StudentDto();
         studentInfo.setStudentId(studentRequest.getStudentId());
         studentInfo.setStudentName(studentRequest.getStudentName());
+        String format = studentRequest.getTime().format(TimeConstant.UniformDateTimeFormatter);
+        System.out.println(format);
         studentService.saveStudent(studentInfo);
 
     }
