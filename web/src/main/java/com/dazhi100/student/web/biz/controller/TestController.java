@@ -10,6 +10,7 @@ import com.dazhi100.student.service.biz.StudentService;
 import com.dazhi100.student.web.biz.converter.StudentLeaveConverter;
 import com.dazhi100.student.web.biz.entity.request.StudentLeaveRequest;
 import com.dazhi100.student.web.biz.entity.request.StudentRequest;
+import com.dazhi100.student.web.biz.entity.response.StudentResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +50,9 @@ public class TestController {
 
     @PostMapping("/update")
     @Operation(summary = "更新学生")
-    public StudentRequest update() {
+    public StudentResponse update() {
         studentService.update(1L, 1L);
-        StudentRequest studentRequest = new StudentRequest();
-        studentRequest.setTime(LocalDateTime.now());
+        StudentResponse studentRequest = new StudentResponse(LocalDateTime.now());
         return studentRequest;
     }
 
@@ -68,9 +68,9 @@ public class TestController {
     @Operation(summary = "保存学生")
     public void saveStudent(@RequestBody StudentRequest studentRequest) {
         StudentDto studentInfo = new StudentDto();
-        studentInfo.setStudentId(studentRequest.getStudentId());
-        studentInfo.setStudentName(studentRequest.getStudentName());
-        String format = studentRequest.getTime().format(TimeConstant.UniformDateTimeFormatter);
+        studentInfo.setStudentId(studentRequest.studentId());
+        studentInfo.setStudentName(studentRequest.studentName());
+        String format = studentRequest.time().format(TimeConstant.UniformDateTimeFormatter);
         System.out.println(format);
         studentService.saveStudent(studentInfo);
 

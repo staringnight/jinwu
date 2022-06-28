@@ -1,4 +1,4 @@
-package com.dazhi100.student.web.biz.entity.request;
+package com.dazhi100.student.web.biz.entity.response;
 
 import org.springframework.boot.context.properties.ConstructorBinding;
 
@@ -9,6 +9,6 @@ import java.time.LocalDateTime;
  * @date: 2022/4/25
  */
 @ConstructorBinding
-public record StudentRequest(Long studentId, String studentName, LocalDateTime time, Long gradeId, String gradeName) {
+public record StudentResponse(LocalDateTime time) {
 
 }
