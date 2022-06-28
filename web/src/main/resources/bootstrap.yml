@@ -27,6 +27,18 @@ logging:
 dubbo:
   cloud:
     subscribed-services: school-service, grade-service
+springdoc:
+  swagger-ui:
+    display-request-duration: true
+    groups-order: DESC
+    operationsSorter: method
+    disable-swagger-default-url: true
+    use-root-path: true
+    enabled: false
+  show-actuator: true
+  api-docs:
+    enabled: false
+  packages-to-scan: com.dazhi100.student, com.dazhi100.common
 ---
 # 本地环境 public
 spring:

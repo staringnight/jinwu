@@ -94,5 +94,4 @@
         <appender-ref ref="WARN_ROLLING"/>
         <appender-ref ref="ERROR_ROLLING"/>
     </root>
-    <logger name="io.swagger.models.parameters.AbstractSerializableParameter" level="error"/>
 </configuration>
