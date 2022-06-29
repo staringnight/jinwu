@@ -5,4 +5,5 @@ import com.dazhi100.student.api.dto.StudentDto;
 
 public interface StudentRepository {
     void saveStudent(StudentDto var1);
+    StudentDto getStudentDto(Long studentId);
 }

@@ -67,9 +67,7 @@ public class TestController {
     @PostMapping(value = "/saveStudent")
     @Operation(summary = "保存学生")
     public void saveStudent(@RequestBody StudentRequest studentRequest) {
-        StudentDto studentInfo = new StudentDto();
-        studentInfo.setStudentId(studentRequest.studentId());
-        studentInfo.setStudentName(studentRequest.studentName());
+        StudentDto studentInfo = new StudentDto(studentRequest.studentId(), studentRequest.studentName());
         String format = studentRequest.time().format(TimeConstant.UniformDateTimeFormatter);
         System.out.println(format);
         studentService.saveStudent(studentInfo);

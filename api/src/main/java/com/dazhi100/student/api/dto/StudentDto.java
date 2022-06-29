@@ -1,14 +1,11 @@
 package com.dazhi100.student.api.dto;
 
-import lombok.Data;
+import java.io.Serializable;
 
 /**
  * @author: huangjl
  * @date: 2022/4/24
  */
-@Data
-public class StudentDto {
+public record StudentDto(Long id, String name) implements Serializable {
 
-    public Long studentId;
-    private String studentName;
 }

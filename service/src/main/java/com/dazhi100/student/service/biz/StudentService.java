@@ -5,6 +5,8 @@ import com.dazhi100.common.annotation.UpdateClientCache;
 import com.dazhi100.student.api.dto.StudentDto;
 import com.dazhi100.student.service.acl.GradeRepository;
 import com.dazhi100.student.service.acl.StudentRepository;
+import com.dazhi100.student.service.bo.StudentBo;
+import com.dazhi100.student.service.converter.StudentDtoConverter;
 import com.dazhi100.student.service.dto.StudentLeaveDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,14 +57,16 @@ public class StudentService {
     @UpdateClientCache(keyReg = "student _ _ ? _", argReg = "studentLeaveDto _ _ s _")
     @UpdateClientCache(keyReg = "leave _ _ _ leaveId", argReg = "studentLeaveDto _ _ _ s")
     public String update(StudentLeaveDto studentLeaveDto) {
-        log.info("update studentId: {}, studentName:{}", studentLeaveDto.getStuId(), studentLeaveDto.getStudentName());
+        log.info("update studentId: {}, studentName:{}", studentLeaveDto.stuId(), studentLeaveDto.studentName());
         return "update";
     }
 
     public String get(Long stuId) {
-        gradeRepository.get();
         //studentRepository.saveStudent(new StudentDto());
         log.info("get studentId: {}", stuId);
-        return "get";
+        StudentDto studentDto = studentRepository.getStudentDto(stuId);
+        StudentBo studentBo = StudentDtoConverter.INSTANCES.sourceToTarget(studentDto);
+        studentBo.setName(studentBo.getName() + "学生");
+        return studentBo.getName();
     }
 }
