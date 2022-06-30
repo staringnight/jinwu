@@ -12,6 +12,8 @@ spring:
         sharedConfigs:
           - dataId: clientcache-etag.yaml
             refresh: true
+          - dataId: common-config.yaml
+            refresh: true
         group: DEFAULT_GROUP
         prefix: ${spring.application.name}
         server-addr: 47.99.108.112:8848

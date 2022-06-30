@@ -1,6 +1,7 @@
 package com.dazhi100.student.service.biz;
 
 import com.dazhi100.student.api.HelloApi;
+import com.dazhi100.student.api.dto.StudentDto;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +26,7 @@ public class HelloBiz implements HelloApi {
     private String helloTest;
 
     @Override
-    public void sayHello() {
+    public void sayHello(StudentDto studentDto) {
 //        RLock lock = redissonClient.getLock("teacher_test_lock");
 //        try {
 //            boolean lockSuccess = lock.tryLock(3, 10, TimeUnit.SECONDS);
