@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
  * @author: huangjl
  * @date: 2022/4/25
  */
-public record StudentLeaveRequest(@ErrorCode(value = ResultCode.AES_ERROR, msg = "参数错误") @NotNull Long stuId,
+public record StudentLeaveRequest(@ErrorCode(value = ResultCode.COMMON_PARAMS_ERROR, msg = "参数错误") @NotNull Long stuId,
                                   String studentName,
                                   @NotNull
                                   Long leaveId){
