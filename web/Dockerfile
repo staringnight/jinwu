@@ -2,7 +2,7 @@ FROM harbor.dazhi100.com/docker-hub/library/openjdk:17.0.2-oracle
 
 VOLUME /dzyx/ /dzyx/
 
-WORKDIR /dzyx/service
+WORKDIR /dzyx
 
 COPY /target/student-web-1.0.0-SNAPSHOT.jar /dzyx/service/
 
