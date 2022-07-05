@@ -6,7 +6,7 @@ WORKDIR /dzyx/service
 
 COPY /target/student-web-1.0.0-SNAPSHOT.jar /dzyx/service/
 
-ENV JAVA_OPTS "-server -Xmx2g -Xms512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dzyx/dump/"
+ENV JAVA_OPTS "-server -Xmx2g -Xms512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dzyx/dump/student-web/"
 
 EXPOSE 6081
 
