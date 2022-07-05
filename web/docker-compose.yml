@@ -1,0 +1,15 @@
+version: "3"
+services:
+  student:
+    hostname: student
+    image: harbor.dazhi100.com/dzyx/student-web:latest
+    container_name: student-web
+    restart: always
+    ports:
+      - "6081:6081"
+    networks:
+      - dzyx-server-network
+
+networks:
+  dzyx-server-network:
+    external: true
