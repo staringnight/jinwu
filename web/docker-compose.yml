@@ -1,7 +1,7 @@
 version: "3"
 services:
-  student:
-    hostname: student
+  jinwu:
+    hostname: jinwu
     image: 172.16.56.117:18090/dzyx/jinwu-web:latest
     container_name: student-web
     restart: always
