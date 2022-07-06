@@ -14,11 +14,11 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDubbo
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("com.dazhi100.student.infrastructure")
-@ComponentScan({"com.dazhi100.student", "com.dazhi100.common"})
-public class StudentApplication {
+@MapperScan("com.pokeya.jinwu.infrastructure")
+@ComponentScan({"com.pokeya.jinwu", "com.pokeya.yao"})
+public class JinWuApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StudentApplication.class, args);
+        SpringApplication.run(JinWuApplication.class, args);
     }
 }

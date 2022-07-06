@@ -1,6 +1,6 @@
 spring:
   application:
-    name: student-service
+    name: jinwu-service
   main:
     allow-circular-references: true
   cloud:
@@ -11,8 +11,6 @@ spring:
       config:
         sharedConfigs:
           - dataId: clientcache-etag.yaml
-            refresh: true
-          - dataId: common-config.yaml
             refresh: true
         group: DEFAULT_GROUP
         prefix: ${spring.application.name}
@@ -27,8 +25,14 @@ logging:
   file:
     path: /dzyx/logs
 dubbo:
+  protocol:
+    port: 20880
+    name: dubbo
   cloud:
-    subscribed-services: school-service, grade-service
+    subscribed-services: zhulong-service
+  metadata-report:
+    address: nacos://47.99.108.112:8848
+    registry: redis
 springdoc:
   swagger-ui:
     display-request-duration: true
@@ -40,7 +44,7 @@ springdoc:
   show-actuator: true
   api-docs:
     enabled: false
-  packages-to-scan: com.dazhi100.student, com.dazhi100.common
+  packages-to-scan: com.pokeya.jinwu
 ---
 # 本地环境 public
 spring:

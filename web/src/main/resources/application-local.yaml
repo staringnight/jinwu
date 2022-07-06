@@ -11,7 +11,7 @@ spring:
         max-idle: 16
         min-idle: 2
   datasource:
-    url: jdbc:mysql://47.99.108.112:3308/student?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://47.99.108.112:3308/jinwu?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: dzyx2022cz
 rocketmq:
