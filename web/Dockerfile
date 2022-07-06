@@ -1,4 +1,4 @@
-FROM harbor.dazhi100.com/docker-hub/library/openjdk:17.0.2-oracle
+FROM 172.16.56.117:18090/docker-hub/library/openjdk:17.0.2-oracle
 
 VOLUME /dzyx/ /dzyx/
 
@@ -6,7 +6,7 @@ WORKDIR /dzyx
 
 COPY /target/jinwu-web-1.0.0-SNAPSHOT.jar /dzyx/service/
 
-ENV JAVA_OPTS "-server -Xmx2g -Xms512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dzyx/dump/student-web/"
+ENV JAVA_OPTS "-server -Xmx2g -Xms512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dzyx/dump/jinwu-web/"
 
 EXPOSE 6081
 

@@ -2,7 +2,7 @@ version: "3"
 services:
   student:
     hostname: student
-    image: harbor.dazhi100.com/dzyx/student-web:latest
+    image: 172.16.56.117:18090/dzyx/student-web:latest
     container_name: student-web
     restart: always
     ports:
