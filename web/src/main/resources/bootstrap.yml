@@ -25,8 +25,14 @@ logging:
   file:
     path: /dzyx/logs
 dubbo:
+  protocol:
+    port: 20880
+    name: dubbo
   cloud:
-    subscribed-services: tangu-service
+    subscribed-services: zhulong-service
+  metadata-report:
+    address: nacos://47.99.108.112:8848
+    registry: redis
 springdoc:
   swagger-ui:
     display-request-duration: true
