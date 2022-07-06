@@ -14,7 +14,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <dzyx-grade.version>1.0.0-SNAPSHOT</dzyx-grade.version>
+        <fusang.version>1.0.0-SNAPSHOT</fusang.version>
     </properties>
     <dependencies>
         <dependency>
@@ -65,11 +65,14 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.dazhi100</groupId>
-            <artifactId>grade-api</artifactId>
-            <version>${dzyx-grade.version}</version>
+            <groupId>com.pokeya</groupId>
+            <artifactId>fusang-api</artifactId>
+            <version>${fusang.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.xuxueli</groupId>
+            <artifactId>xxl-job-core</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
