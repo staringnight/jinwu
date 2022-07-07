@@ -30,9 +30,6 @@ dubbo:
     name: dubbo
   cloud:
     subscribed-services: zhulong-service
-  metadata-report:
-    address: nacos://47.99.108.112:8848
-    registry: redis
 springdoc:
   swagger-ui:
     display-request-duration: true
