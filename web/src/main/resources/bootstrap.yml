@@ -19,14 +19,14 @@ spring:
   profiles:
     active: @package.environment@
 server:
-  port: 6081
+  port: 18030
 logging:
   config: classpath:log/logback-@package.environment@.xml
   file:
     path: /dzyx/logs
 dubbo:
   protocol:
-    port: 20880
+    port: 20882
     name: dubbo
   cloud:
     subscribed-services: zhulong-service

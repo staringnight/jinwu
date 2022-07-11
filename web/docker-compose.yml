@@ -1,12 +1,12 @@
 version: "3"
 services:
-  jinwu:
-    hostname: jinwu
-    image: 172.16.56.117:18090/dzyx/jinwu-web:latest
-    container_name: student-web
+  tanggu:
+    hostname: tanggu
+    image: harbor.dazhi100.com/dzyx/tanggu:latest
+    container_name: tanggu
     restart: always
     ports:
-      - "6081:6081"
+      - "18030:18030"
     networks:
       - dzyx-server-network
 
