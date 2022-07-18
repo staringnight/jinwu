@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pokeya.jinwu.infrastructure.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.pokeya.jinwu.infrastructure.model.Student">
+    <!--@mbg.generated-->
+    <!--@Table student-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="student_number" jdbcType="VARCHAR" property="studentNumber" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="birth_date" jdbcType="DATE" property="birthDate" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, student_number, `name`, gender, birth_date, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from student
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.pokeya.jinwu.infrastructure.model.Student">
+    <!--@mbg.generated-->
+    insert into student (id, student_number, `name`, 
+      gender, birth_date, create_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{studentNumber,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{birthDate,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pokeya.jinwu.infrastructure.model.Student">
+    <!--@mbg.generated-->
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="studentNumber != null">
+        student_number,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birthDate != null">
+        birth_date,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="studentNumber != null">
+        #{studentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthDate != null">
+        #{birthDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pokeya.jinwu.infrastructure.model.Student">
+    <!--@mbg.generated-->
+    update student
+    <set>
+      <if test="studentNumber != null">
+        student_number = #{studentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthDate != null">
+        birth_date = #{birthDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pokeya.jinwu.infrastructure.model.Student">
+    <!--@mbg.generated-->
+    update student
+    set student_number = #{studentNumber,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      birth_date = #{birthDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
