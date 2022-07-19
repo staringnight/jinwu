@@ -5,6 +5,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * 班班级家长级学生
  */
-@Schema(title = "班级家长request")
-public record ClassParentRequest(@Schema(title = "学生id") Long studentId) {
+@Schema(description = "班级家长request")
+public record ClassParentRequest(@Schema(description = "学生id") Long studentId) {
 }

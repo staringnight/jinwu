@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 /**
  * 姓名、学号、性别
  */
-@Schema(title = "学生")
-public record StudentResponse(Long id, @Schema(title = "姓名") String name, @Schema(title = "性别") Integer gender,
-                              @Schema(title = "学号") String studentNumber,
-                              @Schema(title = "出生日期") LocalDateTime birthDate) {
+@Schema(description = "学生")
+public record StudentResponse(Long id, @Schema(description = "姓名") String name, @Schema(description = "性别") Integer gender,
+                              @Schema(description = "学号") String studentNumber,
+                              @Schema(description = "出生日期") LocalDateTime birthDate) {
 }
