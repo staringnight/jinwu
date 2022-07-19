@@ -3,27 +3,27 @@ package com.pokeya.jinwu.infrastructure.model;
 import java.time.LocalDateTime;
 
 /**
-    * 学生家长
-    */
+ * 学生家长
+ */
 public class StudentParent {
     /**
-    * 主键
-    */
+     * 主键
+     */
     private Long id;
 
     /**
-    * 家长id
-    */
+     * 家长id
+     */
     private Long parentId;
 
     /**
-    * 学生id
-    */
+     * 学生id
+     */
     private Long studentId;
 
     /**
-    * 创建时间
-    */
+     * 创建时间
+     */
     private LocalDateTime createTime;
 
     public Long getId() {
